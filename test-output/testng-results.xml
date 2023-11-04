@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2566-11-04T23:07:31 ICT" name="Default suite" finished-at="2566-11-04T23:08:15 ICT" duration-ms="44013">
+  <suite started-at="2566-11-05T01:25:42 ICT" name="Default suite" finished-at="2566-11-05T01:36:38 ICT" duration-ms="655627">
     <groups>
     </groups>
-    <test started-at="2566-11-04T23:07:31 ICT" name="Default test" finished-at="2566-11-04T23:08:15 ICT" duration-ms="44013">
+    <test started-at="2566-11-05T01:25:42 ICT" name="Default test" finished-at="2566-11-05T01:36:38 ICT" duration-ms="655627">
       <class name="seleniumwork.GetAllItems">
-        <test-method signature="getAllItems()[pri:0, instance:seleniumwork.GetAllItems@316bcf94]" started-at="2566-11-04T23:07:31 ICT" name="getAllItems" finished-at="2566-11-04T23:07:31 ICT" duration-ms="17" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getAllItems -->
-        <test-method signature="getAllPages()[pri:0, instance:seleniumwork.GetAllItems@316bcf94]" started-at="2566-11-04T23:07:31 ICT" name="getAllPages" finished-at="2566-11-04T23:08:15 ICT" duration-ms="43923" status="PASS">
+        <test-method signature="getAllPages()[pri:0, instance:seleniumwork.GetAllItems@6404f418]" started-at="2566-11-05T01:25:42 ICT" name="getAllPages" finished-at="2566-11-05T01:36:38 ICT" duration-ms="655588" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getAllPages -->
