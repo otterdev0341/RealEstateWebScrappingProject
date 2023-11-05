@@ -51,11 +51,12 @@ public class CollectFacilityAll {
 			result = collect.getUnitFacility(all_url.get(i));
 			for (String x : result) {
 				final_result.add(x);
-				
+
 			}
-			
-			i++;
 			System.out.println("Round : " + (all_url.size() - i) + " to complete...");
+			System.out.println("Now have " + final_result.size() + "facilites");
+			i++;
+			
 		}
 		ArrayList<String> sendToWrite = new ArrayList<String>();
 		for (String q : final_result) {
@@ -98,7 +99,7 @@ public class CollectFacilityAll {
 				result.add(temp_var);
 				
 			}
-			result.clear();
+			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
