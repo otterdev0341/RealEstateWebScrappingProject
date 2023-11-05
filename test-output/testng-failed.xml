@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="regularEx.CollectRegx">
+      <class name="jsoup.CollectFacilityAll">
         <methods>
-          <include name="getRegx"/>
+          <include name="getAllFacilityController"/>
         </methods>
-      </class> <!-- regularEx.CollectRegx -->
+      </class> <!-- jsoup.CollectFacilityAll -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

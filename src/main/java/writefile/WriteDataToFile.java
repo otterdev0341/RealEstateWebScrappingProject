@@ -33,4 +33,24 @@ public class WriteDataToFile {
 			System.err.println("IOException: " + e.getMessage());
 		}
 	}
+	public void letWriteFileTo_(ArrayList<String> data, String pathToFile) {
+		try {
+		//set location to write
+		Path file_path = Paths.get(pathToFile);
+		//create writer
+		BufferedWriter write = Files.newBufferedWriter(file_path, StandardCharsets.UTF_8);
+		// write data into file
+		System.out.println("Ready to Write...");
+		for(int i = 0; i< data.size(); i++)
+		{
+			write.write(data.get(i));
+			write.newLine();
+		}
+		System.out.println("Write Done ...");
+		write.close();
+		}catch(IOException e)
+		{
+			System.err.println("IOException : " + e.getMessage());
+		}
+	}
 }
