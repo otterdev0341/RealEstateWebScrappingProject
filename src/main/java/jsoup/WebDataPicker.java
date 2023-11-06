@@ -13,7 +13,7 @@ public class WebDataPicker {
 
 	public static void main(String[] args) {
 		WebDataPicker picker = new WebDataPicker();
-		String test_data = picker.FazWazGetLocation("10");
+		String test_data = picker.FazWazGetAssestType("10");
 		System.out.println(test_data);
 
 	}
@@ -152,5 +152,29 @@ public class WebDataPicker {
 			e.printStackTrace();
 		}
 		return location;
+	}
+	public String FazWazGetAssestType(String p_id)
+	{
+		String assestType = null;
+		String assestIndex = null;
+		DataCsv getId = new DataCsv();
+		String fetch_url = getId.takeIdThenReturnUrl(p_id);
+		try {
+			//fetch assest type
+			Document doc = Jsoup.connect(fetch_url).get();
+			Elements listData = doc.select("span.basic-information-info");
+			assestType = listData.get(2).text().replaceAll(" ", "").trim();
+			
+			//compare to our csv to get index
+			DataCsv compare = new DataCsv();
+			assestIndex = compare.takeAssestTypeThenReturnIndex(assestType);
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return assestIndex;
 	}
 }

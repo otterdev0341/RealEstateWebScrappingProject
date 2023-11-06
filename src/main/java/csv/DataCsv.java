@@ -78,32 +78,29 @@ public class DataCsv {
 		return (id);
 
 	}
-	public String takeIdThenReturnUrl(String p_id)
-	{
+
+	public String takeIdThenReturnUrl(String p_id) {
 		String url = null;
 		String path = "P:\\ScrappyFazWaz\\ScrappingFazWaz\\URL_CSV.csv";
 		CSVReader csvReader = null;
-		
+
 		try {
 			csvReader = new CSVReader(new FileReader(path));
 			String[] value;
-			while((value = csvReader.readNext())!= null)
-			{
-				if(value[0].toString().equals(p_id))
-				{
+			while ((value = csvReader.readNext()) != null) {
+				if (value[0].toString().equals(p_id)) {
 					url = value[1];
 				}
 			}
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return url;
 	}
-	//Convert AssestType to CSV
-	
-	public void TranformAllAssestTypeToCsv() throws IOException
-	{
+	// Convert AssestType to CSV
+
+	public void TranformAllAssestTypeToCsv() throws IOException {
 		String file_path = "P:\\ScrappyFazWaz\\ScrappingFazWaz\\ASSEST_TYPE.csv";
 		ArrayList<String> allAssestType = new ReadAllItemFromTextFile().getAllAssestType();
 		try {
@@ -124,11 +121,10 @@ public class DataCsv {
 			e.printStackTrace();
 		}
 	}
-	
-	//Convert facility to csv
-	@Test
-	public void TranformAllFacilitesToCsv() throws IOException
-	{
+
+	// Convert facility to csv
+
+	public void TranformAllFacilitesToCsv() throws IOException {
 		String file_path = "P:\\ScrappyFazWaz\\ScrappingFazWaz\\FACILITIES.csv";
 		ArrayList<String> allFacilities = new ReadAllItemFromTextFile().getAllFacilites();
 		try {
@@ -148,6 +144,30 @@ public class DataCsv {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
+	}
+
+	public String takeAssestTypeThenReturnIndex(String p_assestType) {
+		String assest_type = null;
+		String path = "P:\\ScrappyFazWaz\\ScrappingFazWaz\\ASSEST_TYPE.csv";
+		CSVReader csvReader = null;
+		try {
+			csvReader = new CSVReader(new FileReader(path));
+			String[] value;
+			while ((value = csvReader.readNext()) != null) {
+//				System.out.println(value[0] +" " +value[1]);
+
+				if (value[1].equals(p_assestType)) {
+//					System.out.println(value[1]+"x");
+					assest_type = value[0];
+
+				}
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return assest_type;
 	}
 }

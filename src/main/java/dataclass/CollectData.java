@@ -28,6 +28,8 @@ public class CollectData {
 //		private String useable_area; <!-- DONE -->
 		//location
 //		private String location; <!-- DONE -->
+		// assest type
+//		private String assest_type;
 	}
 	
 	public String helpGetAssest_id(String url)
@@ -122,5 +124,12 @@ public class CollectData {
 		WebDataPicker pick_data = new WebDataPicker();
 		location = pick_data.FazWazGetLocation(p_id);
 		return location;
+	}
+	public String helpGetIndexAssestType(String p_id)
+	{
+		String assestType = null;
+		WebDataPicker pick_data = new WebDataPicker();
+		assestType = pick_data.FazWazGetAssestType(p_id);
+		return assestType;
 	}
 }
