@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2566-11-06T05:16:18 ICT" name="Default suite" finished-at="2566-11-06T06:14:52 ICT" duration-ms="3513580">
+  <suite started-at="2566-11-07T01:30:51 ICT" name="Default suite" finished-at="2566-11-07T01:30:51 ICT" duration-ms="932">
     <groups>
     </groups>
-    <test started-at="2566-11-06T05:16:18 ICT" name="Default test" finished-at="2566-11-06T06:14:52 ICT" duration-ms="3513580">
-      <class name="jsoup.CollectFacilityAll">
-        <test-method signature="getAllFacilityController()[pri:0, instance:jsoup.CollectFacilityAll@3a44431a]" started-at="2566-11-06T05:16:18 ICT" name="getAllFacilityController" finished-at="2566-11-06T06:14:52 ICT" duration-ms="3513529" status="PASS">
+    <test started-at="2566-11-07T01:30:51 ICT" name="Default test" finished-at="2566-11-07T01:30:51 ICT" duration-ms="932">
+      <class name="dataclass.CollectData">
+        <test-method signature="helpGetAssest_name()[pri:0, instance:dataclass.CollectData@729d991e]" started-at="2566-11-07T01:30:51 ICT" name="helpGetAssest_name" finished-at="2566-11-07T01:30:51 ICT" duration-ms="877" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- getAllFacilityController -->
-      </class> <!-- jsoup.CollectFacilityAll -->
+        </test-method> <!-- helpGetAssest_name -->
+      </class> <!-- dataclass.CollectData -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
