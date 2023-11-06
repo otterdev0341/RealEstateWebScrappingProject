@@ -7,6 +7,7 @@ import org.jsoup.select.Elements;
 import org.testng.annotations.Test;
 
 import csv.DataCsv;
+import jsoup.WebDataPicker;
 import readfile.ReadAllUrlFromTextFile;
 
 public class CollectData {
@@ -15,9 +16,16 @@ public class CollectData {
 		String test_url = new ReadAllUrlFromTextFile().getAllUrl().get(0);
 		// main attibute
 //		private String assest_id; <!-- DONE -->
-//		private String assest_name;
-//		private String assest_url; 
-		
+//		private String assest_name; <!-- DONE -->
+//		private String assest_url; <!-- DONE -->
+//		//details attibute
+//		private String date_of_post;   <!-- DONE -->
+//		private String assest_landmark; <!-- DONE -->
+//		private String price_per_sqr_m; <!-- DONE -->
+//		private String land_area;  <!-- DONE -->
+//		private String floor;
+//		private String bedroom;
+//		private String useable_area;
 	}
 	
 	public String helpGetAssest_id(String url)
@@ -46,5 +54,50 @@ public class CollectData {
 		return name;
 	}
 	
-	
+	public String helpGetAssest_url(String p_id)
+	{
+		String id = null;
+		
+		DataCsv getData = new DataCsv();
+		id = getData.takeIdThenReturnUrl(p_id);
+		
+		
+		return id;
+	}
+	public String HelpGetDate_of_post(String p_id)
+	{
+		String date_of_post = null;
+		WebDataPicker pick_data = new WebDataPicker();
+		date_of_post = pick_data.FazWazGetDateOfPost(p_id);
+		
+		return date_of_post;
+	}
+	public String helpGetAssest_landmark(String p_id)
+	{
+		String land_mark = null;
+		WebDataPicker pick_data = new WebDataPicker();
+		land_mark = pick_data.FazWazGetLandmark(p_id);
+		return land_mark;
+	}
+	public String helpGetPrice_per_sqr_m(String p_id)
+	{
+		String pricePerSqrM = null;
+		WebDataPicker pick_data = new WebDataPicker();
+		pricePerSqrM = pick_data.FazWazGetPrice_per_sqr_m(p_id);
+		return pricePerSqrM;
+	}
+	public String helpGetLandArea(String p_id)
+	{
+		String land_area = null;
+		WebDataPicker pick_data = new WebDataPicker();
+		land_area = pick_data.FazWazGetLandArea(p_id);
+		return land_area;
+	}
+	public String helpGetFloor(String p_id)
+	{
+		String floor = null;
+		
+		
+		return floor;
+	}
 }

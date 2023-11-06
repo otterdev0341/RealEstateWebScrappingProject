@@ -25,9 +25,8 @@ import readfile.ReadAllUrlFromTextFile;
 public class DataCsv {
 
 //	public static void main(String[] args) {
-//		String test_to_get_id = "https://www.fazwaz.co.th/%E0%B8%82%E0%B8%B2%E0%B8%A2%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99/%E0%B8%82%E0%B8%B2%E0%B8%A2-%E0%B8%A7%E0%B8%B4%E0%B8%A5%E0%B8%A5%E0%B9%88%E0%B8%B2-2-%E0%B8%AB%E0%B9%89%E0%B8%AD%E0%B8%87%E0%B8%99%E0%B8%AD%E0%B8%99-%E0%B9%83%E0%B8%99-%E0%B8%A3%E0%B8%B2%E0%B9%84%E0%B8%A7%E0%B8%A2%E0%B9%8C-%E0%B8%A0%E0%B8%B9%E0%B9%80%E0%B8%81%E0%B9%87%E0%B8%95-u1683990";
-//		DataCsv test_object = new DataCsv();
-//		String recive_id = test_object.takeUrlThenReturnId(test_to_get_id);
+//		
+//		
 //	}
 
 	// convert all url to csv
@@ -55,7 +54,7 @@ public class DataCsv {
 	}
 
 	// <!-- test done -->
-	
+
 	public String takeUrlThenReturnId(String input_url) {
 
 		String id = null;
@@ -78,5 +77,27 @@ public class DataCsv {
 		return (id);
 
 	}
-
+	public String takeIdThenReturnUrl(String p_id)
+	{
+		String url = null;
+		String path = "P:\\ScrappyFazWaz\\ScrappingFazWaz\\URL_CSV.csv";
+		CSVReader csvReader = null;
+		
+		try {
+			csvReader = new CSVReader(new FileReader(path));
+			String[] value;
+			while((value = csvReader.readNext())!= null)
+			{
+				if(value[0].toString().equals(p_id))
+				{
+					url = value[1];
+				}
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return url;
+	}
+	
 }
