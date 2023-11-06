@@ -11,14 +11,14 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import readfile.ReadAllUrlFromTextFile;
+import readfile.ReadAllItemFromTextFile;
 import writefile.WriteDataToFile;
 
 public class CollectAssestType {
 
 	public static void main(String[] args) {
 		Set<String> assestTypeList = new HashSet<String>();
-		ReadAllUrlFromTextFile getAll = new ReadAllUrlFromTextFile();
+		ReadAllItemFromTextFile getAll = new ReadAllItemFromTextFile();
 			//initial arrayList from all value of AllUrl.txt
 		ArrayList<String> all_url = getAll.getAllUrl();
 			// create object for writer

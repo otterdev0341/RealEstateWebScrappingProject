@@ -13,7 +13,8 @@ public class WebDataPicker {
 
 	public static void main(String[] args) {
 		WebDataPicker picker = new WebDataPicker();
-		String test_data = picker.FazWazGetLandArea("10");
+		String test_data = picker.FazWazGetLocation("10");
+		System.out.println(test_data);
 
 	}
 
@@ -67,36 +68,89 @@ public class WebDataPicker {
 
 		return pricePerSqrM;
 	}
-	public String FazWazGetLandArea(String p_id)
-	{
+
+	public String FazWazGetLandArea(String p_id) {
 		String landArea = null;
+		DataCsv getId = new DataCsv();
+		String fetch_url = getId.takeIdThenReturnUrl(p_id);
+
+		try {
+			Document doc = Jsoup.connect(fetch_url).get();
+			Elements listData = doc.select("span.basic-information-info");
+			String temp_data = listData.get(10).text().replace(",", "").trim();
+			landArea = temp_data.replaceAll(" ตรว.", "");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return landArea;
+	}
+
+	public String FazWazGetFloor(String p_id) {
+		String floor = null;
+		DataCsv getId = new DataCsv();
+		String fetch_url = getId.takeIdThenReturnUrl(p_id);
+
+		try {
+			Document doc = Jsoup.connect(fetch_url).get();
+			Elements listData = doc.select("span.basic-information-info");
+			floor = listData.get(3).text();
+			System.out.println(floor);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return floor;
+	}
+	
+	public String FazWazGetBedroom(String p_id)
+	{
+		String bedroom = null;
 		DataCsv getId = new DataCsv();
 		String fetch_url = getId.takeIdThenReturnUrl(p_id);
 		
 		try {
 			Document doc = Jsoup.connect(fetch_url).get();
 			Elements listData = doc.select("span.basic-information-info");
-			String temp_data = listData.get(7).text().replace(",", "");
-			landArea = temp_data.replaceAll(" ตรม.", "");
-			
+			bedroom = listData.get(5).text();
+			System.out.println(bedroom);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		return landArea;
+		return bedroom;
 	}
-	public String FazWazGetFloor(String p_id)
+	public String FazWazGetUseableArea(String p_id)
 	{
-		String floor = null;
+		String useable_area = null;
 		DataCsv getId = new DataCsv();
 		String fetch_url = getId.takeIdThenReturnUrl(p_id);
-		
 		try {
-			
+			Document doc = Jsoup.connect(fetch_url).get();
+			Elements listData = doc.select("span.basic-information-info");
+			String temp_data = listData.get(7).text().replace(",", "").trim();
+			useable_area = temp_data.replaceAll(" ตรม.", "");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		return floor;
+		
+		return useable_area;
+	}
+	public String FazWazGetLocation(String p_id)
+	{
+		String location = null;
+		DataCsv getId = new DataCsv();
+		String fetch_url = getId.takeIdThenReturnUrl(p_id);
+		try {
+			Document doc = Jsoup.connect(fetch_url).get();
+			Elements listData = doc.select("span.basic-information-info");
+			location = listData.get(4).text().replaceAll(" ", "").trim();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return location;
 	}
 }

@@ -13,7 +13,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.testng.annotations.Test;
 
-import readfile.ReadAllUrlFromTextFile;
+import readfile.ReadAllItemFromTextFile;
 import seleniumwork.GetAllItems;
 import writefile.WriteDataToFile;
 
@@ -40,7 +40,7 @@ public class CollectFacilityAll {
 		WriteDataToFile write = new WriteDataToFile();
 		String file_path = "P:\\\\ScrappyFazWaz\\\\ScrappingFazWaz\\\\AllFacilities.txt";
 		ArrayList<String> result = new ArrayList<>();
-		ArrayList<String> all_url = new ReadAllUrlFromTextFile().getAllUrl();
+		ArrayList<String> all_url = new ReadAllItemFromTextFile().getAllUrl();
 		Set<String> final_result = new HashSet<String>();
 		CollectFacilityAll collect = new CollectFacilityAll();
 		int i = 1;

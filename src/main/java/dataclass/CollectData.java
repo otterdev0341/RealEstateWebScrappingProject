@@ -8,12 +8,12 @@ import org.testng.annotations.Test;
 
 import csv.DataCsv;
 import jsoup.WebDataPicker;
-import readfile.ReadAllUrlFromTextFile;
+import readfile.ReadAllItemFromTextFile;
 
 public class CollectData {
 	
 	public static void main(String[] args) {
-		String test_url = new ReadAllUrlFromTextFile().getAllUrl().get(0);
+		String test_url = new ReadAllItemFromTextFile().getAllUrl().get(0);
 		// main attibute
 //		private String assest_id; <!-- DONE -->
 //		private String assest_name; <!-- DONE -->
@@ -23,9 +23,11 @@ public class CollectData {
 //		private String assest_landmark; <!-- DONE -->
 //		private String price_per_sqr_m; <!-- DONE -->
 //		private String land_area;  <!-- DONE -->
-//		private String floor;
-//		private String bedroom;
-//		private String useable_area;
+//		private String floor; <!-- DONE -->
+//		private String bedroom; <!-- DONE -->
+//		private String useable_area; <!-- DONE -->
+		//location
+//		private String location; <!-- DONE -->
 	}
 	
 	public String helpGetAssest_id(String url)
@@ -96,8 +98,29 @@ public class CollectData {
 	public String helpGetFloor(String p_id)
 	{
 		String floor = null;
-		
-		
+		WebDataPicker pick_data = new WebDataPicker();
+		floor = pick_data.FazWazGetFloor(p_id);
 		return floor;
+	}
+	public String helpGetBedRoom(String p_id)
+	{
+		String bedroom = null;
+		WebDataPicker pick_data = new WebDataPicker();
+		bedroom = pick_data.FazWazGetFloor(p_id);
+		return bedroom;
+	}
+	public String helpGetUseableArea(String p_id)
+	{
+		String useable_area = null;
+		WebDataPicker pick_data = new WebDataPicker();
+		useable_area = pick_data.FazWazGetUseableArea(p_id);
+		return useable_area;
+	}
+	public String helpGetLocation(String p_id)
+	{
+		String location = null;
+		WebDataPicker pick_data = new WebDataPicker();
+		location = pick_data.FazWazGetLocation(p_id);
+		return location;
 	}
 }

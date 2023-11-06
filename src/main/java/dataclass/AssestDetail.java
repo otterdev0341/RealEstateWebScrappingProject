@@ -7,8 +7,8 @@ public class AssestDetail {
 	private String assest_id;
 	private String assest_name;
 	private String assest_url;
-	
-	//details attibute
+
+	// details attibute
 	private String date_of_post;
 	private String assest_landmark;
 	private String price_per_sqr_m;
@@ -16,34 +16,31 @@ public class AssestDetail {
 	private String floor;
 	private String bedroom;
 	private String useable_area;
-	
-	//location
+
+	// location
 	private String location;
-	
-	//project owner
-	private String project_owner_name;
-	private String project_owner_url;
-	
-	//assest type
+
+	// project owner
+
+	// assest type
 	private String assest_type;
-	
-	//facilities
+
+	// facilities
 	private ArrayList<String> assest_facilities;
-	
-	//assest_image_ref
+
+	// assest_image_ref
 	private ArrayList<String> assest_images;
-	
-	//geo details
+
+	// geo details
 	private String geo_lat;
 	private String geo_long;
 	private String geo_url;
-	
-	//Contructor
+
+	// Contructor
 	public AssestDetail(String assest_id, String assest_name, String assest_url, String date_of_post,
 			String assest_landmark, String price_per_sqr_m, String land_area, String floor, String bedroom,
-			String useable_area, String location, String project_owner_name, String project_owner_url,
-			String assest_type, ArrayList<String> assest_facilities, ArrayList<String> assest_images, String geo_lat,
-			String geo_long, String geo_url) {
+			String useable_area, String location, String assest_type, ArrayList<String> assest_facilities,
+			ArrayList<String> assest_images, String geo_lat, String geo_long, String geo_url) {
 		super();
 		this.assest_id = assest_id;
 		this.assest_name = assest_name;
@@ -56,8 +53,7 @@ public class AssestDetail {
 		this.bedroom = bedroom;
 		this.useable_area = useable_area;
 		this.location = location;
-		this.project_owner_name = project_owner_name;
-		this.project_owner_url = project_owner_url;
+
 		this.assest_type = assest_type;
 		this.assest_facilities = assest_facilities;
 		this.assest_images = assest_images;
@@ -65,7 +61,7 @@ public class AssestDetail {
 		this.geo_long = geo_long;
 		this.geo_url = geo_url;
 	}
-	//Setter getter
+	// Setter getter
 
 	public String getAssest_id() {
 		return assest_id;
@@ -155,22 +151,6 @@ public class AssestDetail {
 		this.location = location;
 	}
 
-	public String getProject_owner_name() {
-		return project_owner_name;
-	}
-
-	public void setProject_owner_name(String project_owner_name) {
-		this.project_owner_name = project_owner_name;
-	}
-
-	public String getProject_owner_url() {
-		return project_owner_url;
-	}
-
-	public void setProject_owner_url(String project_owner_url) {
-		this.project_owner_url = project_owner_url;
-	}
-
 	public String getAssest_type() {
 		return assest_type;
 	}
@@ -224,14 +204,11 @@ public class AssestDetail {
 		return "AssestDetail [assest_id=" + assest_id + ", assest_name=" + assest_name + ", assest_url=" + assest_url
 				+ ", date_of_post=" + date_of_post + ", assest_landmark=" + assest_landmark + ", price_per_sqr_m="
 				+ price_per_sqr_m + ", land_area=" + land_area + ", floor=" + floor + ", bedroom=" + bedroom
-				+ ", useable_area=" + useable_area + ", location=" + location + ", project_owner_name="
-				+ project_owner_name + ", project_owner_url=" + project_owner_url + ", assest_type=" + assest_type
+				+ ", useable_area=" + useable_area + ", location=" + location + ", assest_type=" + assest_type
 				+ ", assest_facilities=" + assest_facilities + ", assest_images=" + assest_images + ", geo_lat="
 				+ geo_lat + ", geo_long=" + geo_long + ", geo_url=" + geo_url + "]";
 	}
-	
-	//to String method
-	
-	
-	
+
 }
+
+// to String method

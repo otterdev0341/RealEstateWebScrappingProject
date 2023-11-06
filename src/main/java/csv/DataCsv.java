@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -20,7 +21,7 @@ import com.google.common.io.FileWriteMode;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 
-import readfile.ReadAllUrlFromTextFile;
+import readfile.ReadAllItemFromTextFile;
 
 public class DataCsv {
 
@@ -99,5 +100,54 @@ public class DataCsv {
 		}
 		return url;
 	}
+	//Convert AssestType to CSV
 	
+	public void TranformAllAssestTypeToCsv() throws IOException
+	{
+		String file_path = "P:\\ScrappyFazWaz\\ScrappingFazWaz\\ASSEST_TYPE.csv";
+		ArrayList<String> allAssestType = new ReadAllItemFromTextFile().getAllAssestType();
+		try {
+			Path path = Paths.get(file_path);
+
+			BufferedWriter write = Files.newBufferedWriter(path, StandardCharsets.UTF_8);
+			System.out.println("Ready to write...");
+			for (int i = 0; i < allAssestType.size(); i++) {
+				write.write(i + "");
+				write.write(",");
+				write.write(allAssestType.get(i));
+				write.newLine();
+			}
+			System.out.println("Write done..");
+			write.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	//Convert facility to csv
+	@Test
+	public void TranformAllFacilitesToCsv() throws IOException
+	{
+		String file_path = "P:\\ScrappyFazWaz\\ScrappingFazWaz\\FACILITIES.csv";
+		ArrayList<String> allFacilities = new ReadAllItemFromTextFile().getAllFacilites();
+		try {
+			Path path = Paths.get(file_path);
+
+			BufferedWriter write = Files.newBufferedWriter(path, StandardCharsets.UTF_8);
+			System.out.println("Ready to write...");
+			for (int i = 0; i < allFacilities.size(); i++) {
+				write.write(i + "");
+				write.write(",");
+				write.write(allFacilities.get(i));
+				write.newLine();
+			}
+			System.out.println("Write done..");
+			write.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
 }
