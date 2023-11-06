@@ -1,5 +1,7 @@
 package dataclass;
 
+import java.util.ArrayList;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -131,5 +133,13 @@ public class CollectData {
 		WebDataPicker pick_data = new WebDataPicker();
 		assestType = pick_data.FazWazGetAssestType(p_id);
 		return assestType;
+	}
+	public ArrayList<String> helpGetIndexFacilities(String p_id)
+	{
+		ArrayList<String> facilities;
+		WebDataPicker pick_data = new WebDataPicker();
+		facilities = pick_data.FazWazGetFacilites(p_id);
+		
+		return facilities;
 	}
 }

@@ -1,11 +1,13 @@
 package jsoup;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.testng.annotations.Test;
 
 import csv.DataCsv;
 
@@ -14,7 +16,10 @@ public class WebDataPicker {
 	public static void main(String[] args) {
 		WebDataPicker picker = new WebDataPicker();
 		String test_data = picker.FazWazGetAssestType("10");
-		System.out.println(test_data);
+		ArrayList<String> facilities_test = picker.FazWazGetFacilites("10");
+		for (String x : facilities_test) {
+			System.out.println(x);
+		}
 
 	}
 
@@ -176,5 +181,32 @@ public class WebDataPicker {
 		
 		
 		return assestIndex;
+	}
+	@Test
+	public ArrayList<String> FazWazGetFacilites(String p_id)
+	{
+		ArrayList<String> facilities = new ArrayList<>();
+		ArrayList<String> temp_list = new ArrayList<>();
+		DataCsv getId = new DataCsv();
+		String fetch_url = getId.takeIdThenReturnUrl(p_id);
+		try {
+			//fetch all facilites
+			Document doc = Jsoup.connect(fetch_url).get();
+			Elements datalist = doc.select("span.unit-features__item");
+			// add into arraylist
+			for (Element x : datalist) {
+//				System.out.println(x.text());
+				temp_list.add(x.text());
+				
+			}
+			//send to check and add the index
+			DataCsv getAllIndex = new DataCsv();
+			facilities = getAllIndex.takeAllOfFacilitiesThenReturnIndex(temp_list);
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return facilities;
 	}
 }

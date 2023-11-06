@@ -160,14 +160,51 @@ public class DataCsv {
 				if (value[1].equals(p_assestType)) {
 //					System.out.println(value[1]+"x");
 					assest_type = value[0];
-
 				}
-
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return assest_type;
+	}
+
+	public ArrayList<String> takeAllOfFacilitiesThenReturnIndex(ArrayList<String> facilities) {
+		ArrayList<String> facilitiesIndex = new ArrayList<>();
+//		facilities.add(null);
+		
+		try {
+			DataCsv checker = new DataCsv();
+			for (String x : facilities) {
+				facilitiesIndex.add(checker.takeOneOfFacilityThenReturnIndex(x));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return facilitiesIndex;
+	}
+	@Test
+	public String takeOneOfFacilityThenReturnIndex(String p_facility_item)
+	{
+		String index_of_facility = null;
+		String path = "P:\\ScrappyFazWaz\\ScrappingFazWaz\\FACILITIES.csv";
+		CSVReader csvReader = null;
+		try {
+			csvReader = new CSVReader(new FileReader(path));
+			String[] value;
+			while ((value = csvReader.readNext()) != null) {
+//				System.out.println(value[0] +" " +value[1]);
+
+				if (value[1].equals(p_facility_item)) {
+//					System.out.println(value[1]+"x");
+					index_of_facility = value[0];
+//					System.out.println(index_of_facility);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return index_of_facility;
+		
 	}
 }
