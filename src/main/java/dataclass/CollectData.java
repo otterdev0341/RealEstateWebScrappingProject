@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 import csv.DataCsv;
 import jsoup.WebDataPicker;
 import readfile.ReadAllItemFromTextFile;
+import seleniumwork.HelpBySelenium;
 
 public class CollectData {
 	
@@ -32,6 +33,7 @@ public class CollectData {
 //		private String location; <!-- DONE -->
 		// assest type
 //		private String assest_type;
+//		private ArrayList<String> assest_images;
 	}
 	
 	public String helpGetAssest_id(String url)
@@ -141,5 +143,12 @@ public class CollectData {
 		facilities = pick_data.FazWazGetFacilites(p_id);
 		
 		return facilities;
+	}
+	public ArrayList<String> helpGetAllAssestImages(String p_id)
+	{
+		ArrayList<String> listImages = new ArrayList<String>();
+		listImages = new HelpBySelenium().seleniumGetAllCoverImages(p_id);
+		return listImages;
+		
 	}
 }

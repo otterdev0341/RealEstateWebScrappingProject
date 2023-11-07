@@ -183,7 +183,7 @@ public class DataCsv {
 		
 		return facilitiesIndex;
 	}
-	@Test
+	
 	public String takeOneOfFacilityThenReturnIndex(String p_facility_item)
 	{
 		String index_of_facility = null;

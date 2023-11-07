@@ -32,36 +32,7 @@ public class AssestDetail {
 	private ArrayList<String> assest_images;
 
 	// geo details
-	private String geo_lat;
-	private String geo_long;
-	private String geo_url;
-
-	// Contructor
-	public AssestDetail(String assest_id, String assest_name, String assest_url, String date_of_post,
-			String assest_landmark, String price_per_sqr_m, String land_area, String floor, String bedroom,
-			String useable_area, String location, String assest_type, ArrayList<String> assest_facilities,
-			ArrayList<String> assest_images, String geo_lat, String geo_long, String geo_url) {
-		super();
-		this.assest_id = assest_id;
-		this.assest_name = assest_name;
-		this.assest_url = assest_url;
-		this.date_of_post = date_of_post;
-		this.assest_landmark = assest_landmark;
-		this.price_per_sqr_m = price_per_sqr_m;
-		this.land_area = land_area;
-		this.floor = floor;
-		this.bedroom = bedroom;
-		this.useable_area = useable_area;
-		this.location = location;
-
-		this.assest_type = assest_type;
-		this.assest_facilities = assest_facilities;
-		this.assest_images = assest_images;
-		this.geo_lat = geo_lat;
-		this.geo_long = geo_long;
-		this.geo_url = geo_url;
-	}
-	// Setter getter
+	private ArrayList<String> geo_details;
 
 	public String getAssest_id() {
 		return assest_id;
@@ -175,28 +146,12 @@ public class AssestDetail {
 		this.assest_images = assest_images;
 	}
 
-	public String getGeo_lat() {
-		return geo_lat;
+	public ArrayList<String> getGeo_details() {
+		return geo_details;
 	}
 
-	public void setGeo_lat(String geo_lat) {
-		this.geo_lat = geo_lat;
-	}
-
-	public String getGeo_long() {
-		return geo_long;
-	}
-
-	public void setGeo_long(String geo_long) {
-		this.geo_long = geo_long;
-	}
-
-	public String getGeo_url() {
-		return geo_url;
-	}
-
-	public void setGeo_url(String geo_url) {
-		this.geo_url = geo_url;
+	public void setGeo_details(ArrayList<String> geo_details) {
+		this.geo_details = geo_details;
 	}
 
 	@Override
@@ -205,10 +160,13 @@ public class AssestDetail {
 				+ ", date_of_post=" + date_of_post + ", assest_landmark=" + assest_landmark + ", price_per_sqr_m="
 				+ price_per_sqr_m + ", land_area=" + land_area + ", floor=" + floor + ", bedroom=" + bedroom
 				+ ", useable_area=" + useable_area + ", location=" + location + ", assest_type=" + assest_type
-				+ ", assest_facilities=" + assest_facilities + ", assest_images=" + assest_images + ", geo_lat="
-				+ geo_lat + ", geo_long=" + geo_long + ", geo_url=" + geo_url + "]";
+				+ ", assest_facilities=" + assest_facilities + ", assest_images=" + assest_images + ", geo_details="
+				+ geo_details + "]";
 	}
+	
+	// contructor
+	
 
 }
 
-// to String method
+

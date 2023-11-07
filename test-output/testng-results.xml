@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2566-11-07T05:57:11 ICT" name="Default suite" finished-at="2566-11-07T05:57:11 ICT" duration-ms="69">
+  <suite started-at="2566-11-07T21:20:30 ICT" name="Default suite" finished-at="2566-11-07T21:20:53 ICT" duration-ms="23195">
     <groups>
     </groups>
-    <test started-at="2566-11-07T05:57:11 ICT" name="Default test" finished-at="2566-11-07T05:57:11 ICT" duration-ms="69">
-      <class name="csv.DataCsv">
-        <test-method signature="takeOneOfFacilityThenReturnIndex()[pri:0, instance:csv.DataCsv@4dbb42b7]" started-at="2566-11-07T05:57:11 ICT" name="takeOneOfFacilityThenReturnIndex" finished-at="2566-11-07T05:57:11 ICT" duration-ms="18" status="PASS">
+    <test started-at="2566-11-07T21:20:30 ICT" name="Default test" finished-at="2566-11-07T21:20:53 ICT" duration-ms="23195">
+      <class name="seleniumwork.HelpBySelenium">
+        <test-method signature="seleniumGetAllCoverImages()[pri:0, instance:seleniumwork.HelpBySelenium@36916eb0]" started-at="2566-11-07T21:20:30 ICT" name="seleniumGetAllCoverImages" finished-at="2566-11-07T21:20:53 ICT" duration-ms="23153" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- takeOneOfFacilityThenReturnIndex -->
-      </class> <!-- csv.DataCsv -->
+        </test-method> <!-- seleniumGetAllCoverImages -->
+      </class> <!-- seleniumwork.HelpBySelenium -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
