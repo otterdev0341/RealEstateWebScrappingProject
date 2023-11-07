@@ -5,7 +5,7 @@
     <classes>
       <class name="seleniumwork.HelpBySelenium">
         <methods>
-          <include name="seleniumGetAllCoverImages"/>
+          <include name="seleniumGetGeoDetails"/>
         </methods>
       </class> <!-- seleniumwork.HelpBySelenium -->
     </classes>

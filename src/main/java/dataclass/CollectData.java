@@ -34,6 +34,7 @@ public class CollectData {
 		// assest type
 //		private String assest_type;
 //		private ArrayList<String> assest_images;
+//		private ArrayList<String> geo_details;
 	}
 	
 	public String helpGetAssest_id(String url)
@@ -150,5 +151,13 @@ public class CollectData {
 		listImages = new HelpBySelenium().seleniumGetAllCoverImages(p_id);
 		return listImages;
 		
+	}
+	public ArrayList<String> helpGetAllGeoDetails(String p_id)
+	{
+		ArrayList<String> geo_details = new ArrayList<String>();
+		geo_details.add("meow");
+		
+		return geo_details;
+				
 	}
 }
