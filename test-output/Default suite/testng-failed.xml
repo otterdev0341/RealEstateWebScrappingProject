@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="seleniumwork.HelpBySelenium">
+      <class name="dataclass.AssetUtill">
         <methods>
-          <include name="seleniumGetGeoDetails"/>
+          <include name="initAllAssest"/>
         </methods>
-      </class> <!-- seleniumwork.HelpBySelenium -->
+      </class> <!-- dataclass.AssetUtill -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -1,12 +1,18 @@
 package seleniumwork;
 
+import static org.testng.Assert.expectThrows;
+
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.By.ByXPath;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
@@ -17,8 +23,12 @@ import org.testng.annotations.Test;
 import csv.DataCsv;
 import geo_location.GeoHelper;
 
-public class HelpBySelenium {
 
+public class HelpBySelenium {
+	//singleton 
+	
+	
+	
 	// get normal driver
 	public WebDriver getSeleniumDriver() {
 		WebDriver driver = new FirefoxDriver();
@@ -31,7 +41,10 @@ public class HelpBySelenium {
 		FirefoxOptions options = new FirefoxOptions();
 		options.addArguments("-headless");
 		WebDriver driver = new FirefoxDriver(options);
-
+		
+		//singelton
+		
+		
 		return driver;
 	}
 
@@ -114,35 +127,71 @@ public class HelpBySelenium {
 			// click to location icon
 			// get current url
 //			setLog("Try to click google map link.");
-			WebElement gg_map_link = driver.findElement(By.xpath("//div[@class='gm-iv-address-link']"));
-			gg_map_link.click();
-			// >>> Collect all tab
+			try {
+				String xpath_gg_map_link = "//div[@class='gm-iv-address-link']";
+				boolean boolean_gg_map_link = false;
+				WebElement test_gg_link = driver.findElement(By.xpath(xpath_gg_map_link));
+				WebDriverWait handle_gg_link = new WebDriverWait(driver, Duration.ofSeconds(5));
+				
+				List<WebElement> gg_link = handle_gg_link.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(xpath_gg_map_link)));
+				
+				if(gg_link.size() > 0)
+				{
+					WebElement gg_map_link = driver.findElement(By.xpath("//div[@class='gm-iv-address-link']"));
+					gg_map_link.click();
+					
+					
+					// >>> Collect all tab
+					
+					ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
+					
+					// --> swith to tab 2
+//					setLog("move to new tab");
+					driver.switchTo().window(tabs.get(1));
+					setSleep(3);
+//					setLog("Working on tab 2");
+					// wait until map loading done
+//					WebDriverWait wait_loading_map = new WebDriverWait(driver, Duration.ofSeconds(7));
+					
+					
+//					WebElement loding_map = wait_loading_map.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@aria-label='แสดงตำแหน่งบนแผนที่']")));
+					String btn_xpath = "//button[@aria-label='แสดงตำแหน่งบนแผนที่']";
+					boolean boolean_btn_xpath = driver.findElements(By.xpath(btn_xpath)).size() == 0;
+					if(boolean_btn_xpath == false)
+					{
+						// find xpath of streetView icon then send click
+						WebElement new_tab_icon = driver.findElement(By.xpath("//button[@aria-label='แสดงตำแหน่งบนแผนที่']"));
+//						setLog("send click");
+						setSleep(2);
+						new_tab_icon.click();
+//						setLog("Url collected");
+						//wait url to change
+						setSleep(3);
+						collect_url = driver.getCurrentUrl();
+//						System.out.println(collect_url);
+						setSleep(2);
+						driver.close();
+//						setLog("Move to original tab");
+						// --> swith to tab 1 
+						driver.switchTo().window(tabs.get(0));
+					}
+				}
+				
+			}catch (NoSuchElementException e) {
+				e.printStackTrace();
+				
+			}catch (org.openqa.selenium.NoSuchElementException e) {
+				e.printStackTrace();
+			}catch (ElementNotInteractableException e) {
+				e.printStackTrace();
+			}catch(WebDriverException e)
+			{
+				e.printStackTrace();
+			}
 			
-			ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
 			
-			// --> swith to tab 2
-//			setLog("move to new tab");
-			driver.switchTo().window(tabs.get(1));
-			setSleep(3);
-//			setLog("Working on tab 2");
-			// wait until map loading done
-			WebDriverWait wait_loading_map = new WebDriverWait(driver, Duration.ofSeconds(7));
-			WebElement loding_map = wait_loading_map.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@aria-label='แสดงตำแหน่งบนแผนที่']")));
-			// find xpath of streetView icon then send click
-			WebElement new_tab_icon = driver.findElement(By.xpath("//button[@aria-label='แสดงตำแหน่งบนแผนที่']"));
-//			setLog("send click");
-			setSleep(2);
-			new_tab_icon.click();
-//			setLog("Url collected");
-			//wait url to change
-			setSleep(3);
-			collect_url = driver.getCurrentUrl();
-//			System.out.println(collect_url);
-			setSleep(2);
-			driver.close();
-//			setLog("Move to original tab");
-			// --> swith to tab 1 
-			driver.switchTo().window(tabs.get(0));
+			
+			
 		}
 		//check and do
 		if(collect_url != null)
@@ -153,13 +202,17 @@ public class HelpBySelenium {
 //			for (String x : result_geo) {
 //				System.out.println(x);
 //			}
+		}else {
+			result_geo.add("");
+			result_geo.add("");
+			result_geo.add("");
 		}
 
 		
 		
 		// driver exit
 //		mini.setLog("Closing driver...");
-		mini.setSleep(3);
+		mini.setSleep(1);
 		driver.close();
 		return result_geo;
 		

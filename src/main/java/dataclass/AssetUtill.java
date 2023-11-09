@@ -27,7 +27,11 @@ public class AssetUtill {
 		//test Write		
 		WriteObjectToCsv letWrite = new WriteObjectToCsv();
 		
-		for (String id : allId) {
+		int i = 1201;
+		String id = Integer.toString(i);
+//		for (String id : allId) {
+		while(i < allId.size())
+		{
 			System.out.println("Working on ID : " + id);
 			System.out.println("=============================");
 			
@@ -60,7 +64,8 @@ public class AssetUtill {
 			System.out.println("All write done..");
 			System.out.println("=============================");
 			System.out.println("have " + (allId.size() - Integer.parseInt(id)) + " to complete...");
-			
+		i++;	
+			id = Integer.toString(i);
 		}
 
 	}
