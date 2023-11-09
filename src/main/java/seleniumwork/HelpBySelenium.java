@@ -15,6 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import csv.DataCsv;
+import geo_location.GeoHelper;
 
 public class HelpBySelenium {
 
@@ -45,7 +46,7 @@ public class HelpBySelenium {
 		// create driver
 		WebDriver driver = new HelpBySelenium().getSeleniumHeadlessDriver();
 		driver.get(url_fetch);
-		mini.setLog("Browser open...");
+//		mini.setLog("Browser open...");
 		setSleep(2);
 
 		// create arrayList for return
@@ -54,25 +55,27 @@ public class HelpBySelenium {
 		String xpath = "//div[@class='swiper-slide']";
 		List<WebElement> items = driver.findElements(By.xpath(xpath));
 		for (WebElement x : items) {
-//			all_images_link.add(x.findElement(By.tagName("img")).getAttribute("src"));
-			System.out.println(x.findElement(By.tagName("img")).getAttribute("src"));
+			all_images_link.add(x.findElement(By.tagName("img")).getAttribute("src"));
+//			System.out.println(x.findElement(By.tagName("img")).getAttribute("src"));
 		}
 		driver.close();
 		return all_images_link;
 	}
 
 	@Test
-	public void seleniumGetGeoDetails() {
+	public ArrayList<String> seleniumGetGeoDetails(String input_url) {
+		ArrayList<String> result_geo = new ArrayList<>();
 		String collect_url = null;
 		// help easy method
 		HelpBySelenium mini = new HelpBySelenium();
 		// inti test url
-		String test_url = "https://www.fazwaz.co.th/%E0%B8%82%E0%B8%B2%E0%B8%A2%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99/%E0%B8%82%E0%B8%B2%E0%B8%A2-%E0%B8%A7%E0%B8%B4%E0%B8%A5%E0%B8%A5%E0%B9%88%E0%B8%B2-6-%E0%B8%AB%E0%B9%89%E0%B8%AD%E0%B8%87%E0%B8%99%E0%B8%AD%E0%B8%99-%E0%B8%97%E0%B8%B5%E0%B9%88-%E0%B8%A5%E0%B8%B2%E0%B8%81%E0%B8%B9%E0%B8%99%E0%B8%B2-%E0%B8%9E%E0%B8%B2%E0%B8%A3%E0%B9%8C%E0%B8%84-2-%E0%B9%83%E0%B8%99-%E0%B9%80%E0%B8%8A%E0%B8%B4%E0%B8%87%E0%B8%97%E0%B8%B0%E0%B9%80%E0%B8%A5-%E0%B8%A0%E0%B8%B9%E0%B9%80%E0%B8%81%E0%B9%87%E0%B8%95-u1683530";
+//		String test_url = "https://www.fazwaz.co.th/%E0%B8%82%E0%B8%B2%E0%B8%A2%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99/%E0%B8%82%E0%B8%B2%E0%B8%A2-%E0%B8%A7%E0%B8%B4%E0%B8%A5%E0%B8%A5%E0%B9%88%E0%B8%B2-6-%E0%B8%AB%E0%B9%89%E0%B8%AD%E0%B8%87%E0%B8%99%E0%B8%AD%E0%B8%99-%E0%B8%97%E0%B8%B5%E0%B9%88-%E0%B8%A5%E0%B8%B2%E0%B8%81%E0%B8%B9%E0%B8%99%E0%B8%B2-%E0%B8%9E%E0%B8%B2%E0%B8%A3%E0%B9%8C%E0%B8%84-2-%E0%B9%83%E0%B8%99-%E0%B9%80%E0%B8%8A%E0%B8%B4%E0%B8%87%E0%B8%97%E0%B8%B0%E0%B9%80%E0%B8%A5-%E0%B8%A0%E0%B8%B9%E0%B9%80%E0%B8%81%E0%B9%87%E0%B8%95-u1683530";
+		// convert p_id to url
 		// create driver
-		WebDriver driver = new HelpBySelenium().getSeleniumDriver();
-		driver.get(test_url);
+		WebDriver driver = new HelpBySelenium().getSeleniumHeadlessDriver();
+		driver.get(input_url);
 		// check if is visible do A
-		mini.setLog("Driver Open...");
+//		mini.setLog("Driver Open...");
 		mini.setSleep(2);
 		List<WebElement> columns = driver.findElements(By.xpath("//span[@class='highlight__title']"));
 		Boolean found_streed_view = false;
@@ -88,12 +91,12 @@ public class HelpBySelenium {
 		if (found_streed_view == true) 
 		{
 			//click cover images to open new tab
-			setLog("Open cover image");
+//			setLog("Open cover image");
 			WebElement cover_image = driver.findElement(By.xpath("//a[@class='photo-gallery-detail-page__main-box modal-toggle']"));
 			cover_image.click();		
-			setSleep(1);
+			setSleep(2);
 			//go to street view tab
-			setLog("Choose street view tab..");
+//			setLog("Choose street view tab..");
 			List<WebElement> streetViewList = driver.findElements(By.xpath("//li[@class='nav-item']"));
 			WebElement streetViewTab = null;
 			for (WebElement x : streetViewList) {
@@ -103,14 +106,14 @@ public class HelpBySelenium {
 				}
 //				System.out.println(x.getText());
 			}
-			setLog("Street tab open..");
+//			setLog("Street tab open..");
 			streetViewTab.click();
-			setSleep(1);
+			setSleep(2);
 			// click link url
 			// chagee to new tab
 			// click to location icon
 			// get current url
-			setLog("Try to click google map link.");
+//			setLog("Try to click google map link.");
 			WebElement gg_map_link = driver.findElement(By.xpath("//div[@class='gm-iv-address-link']"));
 			gg_map_link.click();
 			// >>> Collect all tab
@@ -118,22 +121,26 @@ public class HelpBySelenium {
 			ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
 			
 			// --> swith to tab 2
-			setLog("move to new tab");
+//			setLog("move to new tab");
 			driver.switchTo().window(tabs.get(1));
-			setLog("Working on tab 2");
+			setSleep(3);
+//			setLog("Working on tab 2");
 			// wait until map loading done
 			WebDriverWait wait_loading_map = new WebDriverWait(driver, Duration.ofSeconds(7));
-			WebElement loding_map = wait_loading_map.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@aria-label='แสดงตำแหน่งบนแผนที่']")));
+			WebElement loding_map = wait_loading_map.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@aria-label='แสดงตำแหน่งบนแผนที่']")));
 			// find xpath of streetView icon then send click
 			WebElement new_tab_icon = driver.findElement(By.xpath("//button[@aria-label='แสดงตำแหน่งบนแผนที่']"));
-			setLog("Working on tab 2");
+//			setLog("send click");
+			setSleep(2);
 			new_tab_icon.click();
-			setLog("Url collected");
+//			setLog("Url collected");
+			//wait url to change
+			setSleep(3);
 			collect_url = driver.getCurrentUrl();
-			System.out.println(collect_url);
+//			System.out.println(collect_url);
 			setSleep(2);
 			driver.close();
-			setLog("Move to original tab");
+//			setLog("Move to original tab");
 			// --> swith to tab 1 
 			driver.switchTo().window(tabs.get(0));
 		}
@@ -141,15 +148,21 @@ public class HelpBySelenium {
 		if(collect_url != null)
 		{
 			//call geo function then assign to array and return all data
-			
+			GeoHelper geo = new GeoHelper();
+			result_geo = geo.getLatLong(collect_url);
+//			for (String x : result_geo) {
+//				System.out.println(x);
+//			}
 		}
 
 		
 		
 		// driver exit
-		mini.setLog("Closing driver...");
+//		mini.setLog("Closing driver...");
 		mini.setSleep(3);
 		driver.close();
+		return result_geo;
+		
 	}
 
 	public void setSleep(int second) {

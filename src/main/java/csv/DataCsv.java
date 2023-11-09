@@ -171,7 +171,7 @@ public class DataCsv {
 	public ArrayList<String> takeAllOfFacilitiesThenReturnIndex(ArrayList<String> facilities) {
 		ArrayList<String> facilitiesIndex = new ArrayList<>();
 //		facilities.add(null);
-		
+
 		try {
 			DataCsv checker = new DataCsv();
 			for (String x : facilities) {
@@ -180,12 +180,11 @@ public class DataCsv {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return facilitiesIndex;
 	}
-	
-	public String takeOneOfFacilityThenReturnIndex(String p_facility_item)
-	{
+
+	public String takeOneOfFacilityThenReturnIndex(String p_facility_item) {
 		String index_of_facility = null;
 		String path = "P:\\ScrappyFazWaz\\ScrappingFazWaz\\FACILITIES.csv";
 		CSVReader csvReader = null;
@@ -205,6 +204,26 @@ public class DataCsv {
 			e.printStackTrace();
 		}
 		return index_of_facility;
-		
+
+	}
+
+	
+	public ArrayList<String> initAllIdIntoArrayList() throws IOException {
+		ArrayList<String> allId = new ArrayList<>();
+		String path = "P:\\ScrappyFazWaz\\ScrappingFazWaz\\URL_CSV.csv";
+		CSVReader csvReader = null;
+		try {
+			csvReader = new CSVReader(new FileReader(path));
+			String[] value;
+			while((value = csvReader.readNext()) != null)
+			{
+				allId.add(value[0]);
+				
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return allId;
 	}
 }

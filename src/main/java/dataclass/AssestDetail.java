@@ -34,6 +34,7 @@ public class AssestDetail {
 	// geo details
 	private ArrayList<String> geo_details;
 
+		
 	public String getAssest_id() {
 		return assest_id;
 	}

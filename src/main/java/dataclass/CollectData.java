@@ -9,6 +9,7 @@ import org.jsoup.select.Elements;
 import org.testng.annotations.Test;
 
 import csv.DataCsv;
+import geo_location.GeoHelper;
 import jsoup.WebDataPicker;
 import readfile.ReadAllItemFromTextFile;
 import seleniumwork.HelpBySelenium;
@@ -37,7 +38,7 @@ public class CollectData {
 //		private ArrayList<String> geo_details;
 	}
 	
-	public String helpGetAssest_id(String url)
+	public String helpGetAssest_url_by_id(String url)
 	{
 		
 		DataCsv check_id = new DataCsv();
@@ -46,14 +47,14 @@ public class CollectData {
 		return (assest_id);
 	}
 	
-	public String helpGetAssest_name(String url)
+	public String helpGetAssest_name(String p_id)
 	{
-		
+		String url_fetch = new DataCsv().takeIdThenReturnUrl(p_id);
 		String name = null;
 		
 		try {
 			
-			Document doc = Jsoup.connect(url).get();
+			Document doc = Jsoup.connect(url_fetch).get();
 			Element assest_name = doc.select("h2.header-data-topic").first();
 			name = assest_name.text();
 		} catch (Exception e) {
@@ -155,7 +156,9 @@ public class CollectData {
 	public ArrayList<String> helpGetAllGeoDetails(String p_id)
 	{
 		ArrayList<String> geo_details = new ArrayList<String>();
-		geo_details.add("meow");
+		DataCsv data = new DataCsv();
+		String url_fetch = data.takeIdThenReturnUrl(p_id);
+		geo_details = new HelpBySelenium().seleniumGetGeoDetails(url_fetch);
 		
 		return geo_details;
 				

@@ -105,7 +105,7 @@ public class WebDataPicker {
 			Document doc = Jsoup.connect(fetch_url).get();
 			Elements listData = doc.select("span.basic-information-info");
 			floor = listData.get(3).text();
-			System.out.println(floor);
+//			System.out.println(floor);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -123,7 +123,7 @@ public class WebDataPicker {
 			Document doc = Jsoup.connect(fetch_url).get();
 			Elements listData = doc.select("span.basic-information-info");
 			bedroom = listData.get(5).text();
-			System.out.println(bedroom);
+//			System.out.println(bedroom);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
