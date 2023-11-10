@@ -12,6 +12,8 @@ import org.testng.internal.junit.ArrayAsserts;
 
 import com.opencsv.CSVWriter;
 
+import collectPrice.AssestPrice;
+
 public class WriteObjectToCsv {
 	/*
 	 * assest_id, assest_name, assest_url, date_of_post, assest_landmark,
@@ -26,7 +28,30 @@ public class WriteObjectToCsv {
 	 * geo_details : transaction (id, lat, long, map_url) -->> ASSEST_GEO_TSN.csv
 	 * 
 	 */
-
+	public void WriteAssestPriceTN(AssestPrice AP)throws IOException
+	{
+		File file_name = new File("P:\\ScrappyFazWaz\\ScrappingFazWaz\\ExportData\\ASSEST_PRICE_TN.csv");
+		try {
+			FileWriter outputfile = null;
+			if(AP.getId().equals("0"))
+			{
+				outputfile = new FileWriter(file_name);
+			}else {
+				outputfile = new FileWriter(file_name,true);
+			}
+			CSVWriter writer = new CSVWriter(outputfile);
+			List<String[]> data = new ArrayList<String[]>();
+			if(AP.getId().equals("0"))
+			{
+				data.add(new String[] {"AssestID","AssestPrice"});
+			}
+			data.add(new String[] {AP.getId(), AP.getPrice()});
+			writer.writeAll(data);
+			writer.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	public void writeMainDetail(AssestDetail AD) throws IOException {
 		File file_main = new File("P:\\ScrappyFazWaz\\ScrappingFazWaz\\ExportData\\ASSEST_DETAIL.csv");
 

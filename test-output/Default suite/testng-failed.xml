@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="dataclass.AssetUtill">
+      <class name="collectPrice.CollectPrice">
         <methods>
-          <include name="initAllAssest"/>
+          <include name="GetAllPrice"/>
         </methods>
-      </class> <!-- dataclass.AssetUtill -->
+      </class> <!-- collectPrice.CollectPrice -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
