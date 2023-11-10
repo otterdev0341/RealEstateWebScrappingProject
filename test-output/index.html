@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\otter\AppData\Local\Temp\testng-eclipse-1352327761\testng-customsuite.xml</span>
+                    <span>C:\Users\otter\AppData\Local\Temp\testng-eclipse--545963128\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -129,13 +129,29 @@
                   <a name="initAllAssest">
                   </a> <!-- initAllAssest -->
                   <span class="method-name">initAllAssest</span>
-                  <div class="stack-trace">java.lang.IndexOutOfBoundsException: Index 1 out of bounds for length 1
-	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
-	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
-	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
-	at java.base/java.util.Objects.checkIndex(Objects.java:361)
-	at java.base/java.util.ArrayList.get(ArrayList.java:427)
-	at seleniumwork.HelpBySelenium.seleniumGetGeoDetails(HelpBySelenium.java:150)
+                  <div class="stack-trace">org.openqa.selenium.NoSuchSessionException: Tried to run command without establishing a connection
+Build info: version: &apos;4.15.0&apos;, revision: &apos;1d14b5521b&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.8.1&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [23299fdd-0d8d-4af6-8cfb-7da03bc659e2, close {}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 119.0, moz:accessibilityChecks: false, moz:buildID: 20231019122658, moz:debuggerAddress: 127.0.0.1:15211, moz:geckodriverVersion: 0.33.0, moz:headless: true, moz:platformVersion: 10.0, moz:processID: 96904, moz:profile: C:\Users\otter\AppData\Loca..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:15211/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 23299fdd-0d8d-4af6-8cfb-7da03bc659e2
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:607)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:680)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:684)
+	at org.openqa.selenium.remote.RemoteWebDriver.close(RemoteWebDriver.java:414)
+	at seleniumwork.HelpBySelenium.seleniumGetGeoDetails(HelpBySelenium.java:216)
 	at dataclass.CollectData.helpGetAllGeoDetails(CollectData.java:161)
 	at dataclass.AssetUtill.initAllAssest(AssetUtill.java:58)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -175,7 +191,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\otter\AppData\Local\Temp\testng-eclipse-1352327761\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\otter\AppData\Local\Temp\testng-eclipse--545963128\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -228,12 +244,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'initAllAssest')
 data.setCell(0, 2, 'dataclass.AssetUtill')
-data.setCell(0, 3, 21369);
+data.setCell(0, 3, 24572070);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 21 seconds</span>
+              <span class="suite-total-time">Total running time: 6 hours</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->

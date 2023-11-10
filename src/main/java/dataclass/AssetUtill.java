@@ -27,7 +27,7 @@ public class AssetUtill {
 		//test Write		
 		WriteObjectToCsv letWrite = new WriteObjectToCsv();
 		
-		int i = 1201;
+		int i = 2095;
 		String id = Integer.toString(i);
 //		for (String id : allId) {
 		while(i < allId.size())

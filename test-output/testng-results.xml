@@ -2,24 +2,46 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2566-11-10T00:56:19 ICT" name="Default suite" finished-at="2566-11-10T00:56:40 ICT" duration-ms="21421">
+  <suite started-at="2566-11-10T08:22:16 ICT" name="Default suite" finished-at="2566-11-10T15:11:48 ICT" duration-ms="24572157">
     <groups>
     </groups>
-    <test started-at="2566-11-10T00:56:19 ICT" name="Default test" finished-at="2566-11-10T00:56:40 ICT" duration-ms="21421">
+    <test started-at="2566-11-10T08:22:16 ICT" name="Default test" finished-at="2566-11-10T15:11:48 ICT" duration-ms="24572157">
       <class name="dataclass.AssetUtill">
-        <test-method signature="initAllAssest()[pri:0, instance:dataclass.AssetUtill@729d991e]" started-at="2566-11-10T00:56:19 ICT" name="initAllAssest" finished-at="2566-11-10T00:56:40 ICT" duration-ms="21369" status="FAIL">
-          <exception class="java.lang.IndexOutOfBoundsException">
+        <test-method signature="initAllAssest()[pri:0, instance:dataclass.AssetUtill@729d991e]" started-at="2566-11-10T08:22:16 ICT" name="initAllAssest" finished-at="2566-11-10T15:11:48 ICT" duration-ms="24572070" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchSessionException">
             <message>
-              <![CDATA[Index 1 out of bounds for length 1]]>
+              <![CDATA[Tried to run command without establishing a connection
+Build info: version: '4.15.0', revision: '1d14b5521b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.8.1'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [23299fdd-0d8d-4af6-8cfb-7da03bc659e2, close {}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 119.0, moz:accessibilityChecks: false, moz:buildID: 20231019122658, moz:debuggerAddress: 127.0.0.1:15211, moz:geckodriverVersion: 0.33.0, moz:headless: true, moz:platformVersion: 10.0, moz:processID: 96904, moz:profile: C:\Users\otter\AppData\Loca..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:15211/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 23299fdd-0d8d-4af6-8cfb-7da03bc659e2]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.IndexOutOfBoundsException: Index 1 out of bounds for length 1
-at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
-at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
-at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
-at java.base/java.util.Objects.checkIndex(Objects.java:361)
-at java.base/java.util.ArrayList.get(ArrayList.java:427)
-at seleniumwork.HelpBySelenium.seleniumGetGeoDetails(HelpBySelenium.java:150)
+              <![CDATA[org.openqa.selenium.NoSuchSessionException: Tried to run command without establishing a connection
+Build info: version: '4.15.0', revision: '1d14b5521b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.8.1'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [23299fdd-0d8d-4af6-8cfb-7da03bc659e2, close {}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 119.0, moz:accessibilityChecks: false, moz:buildID: 20231019122658, moz:debuggerAddress: 127.0.0.1:15211, moz:geckodriverVersion: 0.33.0, moz:headless: true, moz:platformVersion: 10.0, moz:processID: 96904, moz:profile: C:\Users\otter\AppData\Loca..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:15211/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 23299fdd-0d8d-4af6-8cfb-7da03bc659e2
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:607)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:680)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:684)
+at org.openqa.selenium.remote.RemoteWebDriver.close(RemoteWebDriver.java:414)
+at seleniumwork.HelpBySelenium.seleniumGetGeoDetails(HelpBySelenium.java:216)
 at dataclass.CollectData.helpGetAllGeoDetails(CollectData.java:161)
 at dataclass.AssetUtill.initAllAssest(AssetUtill.java:58)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -52,7 +74,7 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.IndexOutOfBoundsException -->
+          </exception> <!-- org.openqa.selenium.NoSuchSessionException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initAllAssest -->
